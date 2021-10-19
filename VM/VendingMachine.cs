@@ -1,29 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VM
 {
-    class VendingMachine
+    class VendingMachine:IVending
     {
         const int COST_OF_CANDY = 32;
         const int COST_OF_CHIPS = 43;
         const int COST_OF_COFFEE = 32;
         const int COST_OF_COLD_FOOD = 320;
         const int COST_OF_COOKIES = 41;
-        const int COST_OF_FRESH_FRUIT= 29;
+        const int COST_OF_FRESH_FRUIT = 29;
         const int COST_OF_MILK = 35;
-        public int TOTAL_COST=0;
-        //public int TotalPrice = 0;
+        public int TOTAL_COST = 0;
+        public int Price = 0;
         public int TotalPrice { get; set; }
-
-        public VendingMachine()
-        {
-           TotalPrice=0;
-        }
-
         void ChooseProduct(char item)
         {
             if (item == '1')
@@ -55,14 +50,15 @@ namespace VM
                 TOTAL_COST += COST_OF_MILK;
             }
         }
-        public void DisplayCoinSelection()
-        {
+        public void InsertMoney()
+        {           
             Console.WriteLine();
             Console.WriteLine("Enter a valid coin!");
             Console.WriteLine("1 - 1kr , 5 - 5kr , 10 - 10kr , 20 - 20kr , 50 - 50kr");
             Console.WriteLine("100 - 100kr , 500 - 500kr , 1000 - 1000kr");
-            bool ChooseMore = true;
-            string[] items = new string[] { "1","5","10","20","50","100","500","1000" };
+            bool ChooseMore = true;           
+            int[] myArr = { 1, 5, 10, 20, 50, 100, 500, 1000 };
+            IList<int> items = Array.AsReadOnly(myArr);
             while (ChooseMore)
             {
                 int output;
@@ -72,9 +68,14 @@ namespace VM
                     Console.WriteLine("You need to enter valid integer number!");
                     input_1 = Console.ReadLine();
                 }
-                if (items.Contains(output.ToString()))
+                if (items.Contains(int.Parse(output.ToString())))
                 {
                     CoinDenomination(output);
+                }
+                else
+                {
+                    Console.WriteLine($"{output} is not valid amount!");
+                    Console.WriteLine("Please choose valid amount");
                 }
                 Console.WriteLine("Enter Y or YES if you want select more money?");
                 string answer = Console.ReadLine();
@@ -83,7 +84,9 @@ namespace VM
                     ChooseMore = false;
                 }
             }
+            Console.WriteLine(TotalPrice);          
         }
+      
         public void CoinDenomination(int coin)
         {
             switch (coin)
@@ -117,8 +120,10 @@ namespace VM
                     break;
             }
         }
-        public void DisplayProductSelections()
+        public void Purchase()
         {
+            ShowAll();
+            InsertMoney();
             Console.WriteLine();           
             Console.WriteLine("1 - Candy , 2 - Chips , 3 - Coffee , 4 - Milk");
             Console.WriteLine("5 - Cold Food , 6 - Cookies , 7 - Fresh Fruit");
@@ -140,13 +145,13 @@ namespace VM
                         if (!(answer.ToUpper() == "Y" || answer.ToUpper() == "YES"))
                         {
                             ChooseMore = false;
-                            MakeProductSelection();
+                            EndTransaction();
                         }                     
                     }
                     if (TOTAL_COST == TotalPrice)
                     {
                         ChooseMore = false;
-                        MakeProductSelection();
+                        EndTransaction();
                     }
                     if (TOTAL_COST > TotalPrice)
                     {
@@ -160,7 +165,7 @@ namespace VM
                 }
             }
         }
-        private void MakeProductSelection()
+        public void EndTransaction()
         {
             if (TotalPrice-TOTAL_COST >= 0)
             {
@@ -175,7 +180,18 @@ namespace VM
         void ReturnChange()
         {
             Console.WriteLine($"Your change is {TotalPrice-TOTAL_COST} kr");
-        }        
+        }
+        public void ShowAll()
+        {
+            Console.WriteLine("This is the list of our products");
+            Console.WriteLine("1 Candy");
+            Console.WriteLine("2 Chips");
+            Console.WriteLine("3 Coffee");
+            Console.WriteLine("4 Cold food");
+            Console.WriteLine("5 Cookies");
+            Console.WriteLine("6 Fresh fruit");
+            Console.WriteLine("7 Milk");
+        }
     }
 }
 

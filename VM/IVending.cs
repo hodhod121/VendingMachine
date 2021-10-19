@@ -9,8 +9,8 @@ namespace VM
     interface IVending
     {
         void Purchase();
-        string ShowAll();
-        string InsertMoney();
+        void ShowAll();
+        void InsertMoney();
         void EndTransaction();
 
     }
