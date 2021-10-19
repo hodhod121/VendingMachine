@@ -4,50 +4,59 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VM.Products;
 
 namespace VM
 {
     class VendingMachine:IVending
     {
-        const int COST_OF_CANDY = 32;
-        const int COST_OF_CHIPS = 43;
-        const int COST_OF_COFFEE = 32;
-        const int COST_OF_COLD_FOOD = 320;
-        const int COST_OF_COOKIES = 41;
-        const int COST_OF_FRESH_FRUIT = 29;
-        const int COST_OF_MILK = 35;
+         Candy candy = new();
+        Chips chips = new();
+        Coffee coffee = new();
+        ColdFood coldFood = new();
+        Cookies cookies = new();
+        FreshFruit freshFruit = new();
+        Milk milk = new();       
         public int TOTAL_COST = 0;
         public int Price = 0;
         public int TotalPrice { get; set; }
+        List<string> list = new List<string>();
         void ChooseProduct(char item)
         {
             if (item == '1')
             {
-                TOTAL_COST += COST_OF_CANDY;
+                TOTAL_COST += candy.price();
+                list.Add(candy.Use());
             }
             else if (item == '2')
             {
-                TOTAL_COST += COST_OF_CHIPS;
+                TOTAL_COST += chips.price();
+                list.Add(chips.Use());
             }
             else if (item == '3')
             {
-                TOTAL_COST += COST_OF_COFFEE;
+                TOTAL_COST += coffee.price();
+                list.Add(coffee.Use());
             }
             else if (item == '4')
             {
-                TOTAL_COST += COST_OF_COLD_FOOD;
+                TOTAL_COST += coldFood.price();
+                list.Add(coldFood.Use());
             }
             else if (item == '5')
             {
-                TOTAL_COST += COST_OF_COOKIES;
+                TOTAL_COST += cookies.price();
+                list.Add(cookies.Use());
             }
             else if (item == '6')
             {
-                TOTAL_COST += COST_OF_FRESH_FRUIT;
+                TOTAL_COST += freshFruit.price();
+                list.Add(freshFruit.Use());
             }
             else
             {
-                TOTAL_COST += COST_OF_MILK;
+                TOTAL_COST += milk.price();
+                list.Add(candy.Use());
             }
         }
         public void InsertMoney()
@@ -170,6 +179,11 @@ namespace VM
             if (TotalPrice-TOTAL_COST >= 0)
             {
                 Console.WriteLine("Thank you for choising our producs");
+                List<string> distinct = list.Distinct().ToList();
+                foreach (string item in distinct)
+                {
+                    Console.WriteLine(item);
+                }
                 ReturnChange();
             }
             else
@@ -184,13 +198,13 @@ namespace VM
         public void ShowAll()
         {
             Console.WriteLine("This is the list of our products");
-            Console.WriteLine("1 Candy");
-            Console.WriteLine("2 Chips");
-            Console.WriteLine("3 Coffee");
-            Console.WriteLine("4 Cold food");
-            Console.WriteLine("5 Cookies");
-            Console.WriteLine("6 Fresh fruit");
-            Console.WriteLine("7 Milk");
+            candy.Examine();
+            chips.Examine();
+            coffee.Examine();
+            coldFood.Examine();
+            cookies.Examine();
+            freshFruit.Examine();
+            milk.Examine();        
         }
     }
 }

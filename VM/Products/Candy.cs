@@ -6,15 +6,23 @@ using System.Threading.Tasks;
 
 namespace VM.Products
 {
-    abstract class Candy:BaseProduct
+    class Candy:BaseProduct
     {
+        public int price()
+        {
+            return 32;
+        }
+        public string name = "Candy";
+
         public override void Examine()
         {
-            Console.WriteLine("Munch, Munch, YUM!"); 
-        }     
-        public override void Use()
+            Console.Write($"Name: {name} - ");
+            Console.Write($"Very tasty {name} - ");
+            Console.WriteLine($"Price {price()} kr");
+        }
+        public override string Use()
         {
-            Console.WriteLine("Just open and eat!");
+            return $"Just open and eat {name}!";
         }
     }
 }

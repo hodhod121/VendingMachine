@@ -9,6 +9,6 @@ namespace VM.Products
      abstract class BaseProduct
     {
         public abstract void Examine();
-        public abstract void Use();
+        public abstract string Use();
     }
 }
