@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VM.Products
+namespace VendingMachine
 {
-    class Coffee:BaseProduct
+    public class Coffee:BaseProduct
     {
         public int price()
         {
-            return 32;
+            return 35;
         }
         public string name = "Coffee";
 

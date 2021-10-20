@@ -4,13 +4,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VM.Products;
+//using VM.Products;
 
-namespace VM
+namespace VendingMachine
 {
-    class VendingMachine:IVending
+    public class VendingMachine:IVending
     {
-         Candy candy = new();
+        Candy candy = new();
         Chips chips = new();
         Coffee coffee = new();
         ColdFood coldFood = new();
@@ -178,6 +178,7 @@ namespace VM
         {
             if (TotalPrice-TOTAL_COST >= 0)
             {
+                Console.Clear();
                 Console.WriteLine("Thank you for choising our producs");
                 List<string> distinct = list.Distinct().ToList();
                 foreach (string item in distinct)

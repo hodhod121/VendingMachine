@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VM.Products
+namespace VendingMachine
 {
-    class FreshFruit:BaseProduct
+    public class FreshFruit:BaseProduct
     {
         public int price()
         {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VM.Products
+namespace VendingMachine
 {
-    class Candy:BaseProduct
-    {
-        public int price()
+      public  class Candy:BaseProduct
+    {          
+        public  int price()
         {
             return 32;
         }

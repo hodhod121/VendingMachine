@@ -1,7 +1,7 @@
 ﻿using System;
-using VM.Products;
+using VendingMachine;
 
-namespace VM
+namespace VendingMachine
 {
     class Program
     {
