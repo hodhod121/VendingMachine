@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace VendingMachine
 {
-       abstract public class BaseProduct
-    {       
+    abstract public class BaseProduct
+    {
         public int price { get; set; }
         public string name { get; set; }
         public string weight { get; set; }
 
-        public abstract void Examine();
+        public abstract string Examine();
 
         public abstract string Use();
 

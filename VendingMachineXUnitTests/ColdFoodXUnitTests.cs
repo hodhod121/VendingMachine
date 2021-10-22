@@ -24,5 +24,26 @@ namespace VendingMachine
             string actual = coldFood.name;
             Assert.Equal(expected, actual);
         }
+        [Fact]
+        public void ColdFoodWeight_ReturnTrue()
+        {
+            string expected = "120gr";
+            string actual = coldFood.weight;
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void ColdFoodUse_ReturnTrue()
+        {
+            string expected = "Just open and eat the Shrimp sallad!";
+            string actual = coldFood.Use();
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void ColdFoodExamine_ReturnTrue()
+        {
+            string expected = "Name: Shrimp sallad - Fresh and tasty Shrimp sallad - Price 345 kr";
+            string actual = coldFood.Examine();
+            Assert.Equal(expected, actual);
+        }
     }
 }

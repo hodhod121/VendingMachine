@@ -24,5 +24,26 @@ namespace VendingMachine
             string actual = milk.name;
             Assert.Equal(expected, actual);
         }
+        [Fact]
+        public void MilkWeight_ReturnTrue()
+        {
+            string expected = "200gr";
+            string actual = milk.weight;
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void MilkUse_ReturnTrue()
+        {
+            string expected = "Just open and drink the Milk!";
+            string actual = milk.Use();
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void MilkExamine_ReturnTrue()
+        {
+            string expected = "Name: Milk - Very fresh and tasty Milk - Price 39 kr";
+            string actual = milk.Examine();
+            Assert.Equal(expected, actual);
+        }
     }
 }

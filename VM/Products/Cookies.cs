@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace VendingMachine
 {
-    public class Cookies:BaseProduct
-    {      
+    public class Cookies : BaseProduct
+    {
 
         public Cookies(string name, string weight, int price)
         {
@@ -16,11 +16,9 @@ namespace VendingMachine
             this.price = price;
         }
 
-        public override void Examine()
-        {
-            Console.Write($"Name: {name} - ");
-            Console.Write($"New made {name} - ");
-            Console.WriteLine($"Price {price} kr");
+        public override string Examine()
+        {          
+            return $"Name: {name} - New made {name} - Price {price} kr";
         }
         public override string Use()
         {

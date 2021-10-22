@@ -24,5 +24,26 @@ namespace VendingMachine
             string actual = cookies.name;
             Assert.Equal(expected, actual);
         }
+        [Fact]
+        public void CookiesWeight_ReturnTrue()
+        {
+            string expected = "80gr";
+            string actual = cookies.weight;
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void CookiesUse_ReturnTrue()
+        {
+            string expected = "Just open and eat the Cookie!";
+            string actual = cookies.Use();
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void CookiesExamine_ReturnTrue()
+        {
+            string expected = "Name: Cookie - New made Cookie - Price 78 kr";
+            string actual = cookies.Examine();
+            Assert.Equal(expected, actual);
+        }
     }
 }

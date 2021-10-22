@@ -266,23 +266,23 @@ namespace VendingMachine
         public void ShowAll()
         {
             Console.WriteLine("This is the list of our products");
-            candy.Examine();
-            candy_gummi.Examine();
-            candy_kola.Examine();
-            chips.Examine();
-            chips_dill.Examine();
-            chips_onion.Examine();
-            coffee.Examine();
-            coffee_chocolate.Examine();
-            coffee_milk.Examine();
-            coldFood.Examine();
-            coldFood_shrimps.Examine();
-            coldFood_egg.Examine();
-            cookies.Examine();
-            freshFruit.Examine();
-            freshFruit_banana.Examine();
-            freshFruit_mix.Examine();
-            milk.Examine();        
+            Console.WriteLine(candy.Examine());
+            Console.WriteLine(candy_gummi.Examine());
+            Console.WriteLine(candy_kola.Examine());
+            Console.WriteLine(chips.Examine());
+            Console.WriteLine(chips_dill.Examine());
+            Console.WriteLine(chips_onion.Examine());
+            Console.WriteLine(coffee.Examine());
+            Console.WriteLine(coffee_chocolate.Examine());
+            Console.WriteLine(coffee_milk.Examine());
+            Console.WriteLine(coldFood.Examine());
+            Console.WriteLine(coldFood_shrimps.Examine());
+            Console.WriteLine(coldFood_egg.Examine());
+            Console.WriteLine(cookies.Examine());
+            Console.WriteLine(freshFruit.Examine());
+            Console.WriteLine(freshFruit_banana.Examine());
+            Console.WriteLine(freshFruit_mix.Examine());
+            Console.WriteLine(milk.Examine());                
         }
     }
 }

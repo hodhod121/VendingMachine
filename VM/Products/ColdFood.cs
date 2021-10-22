@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendingMachine
 {
-    public class ColdFood:BaseProduct
+    public class ColdFood : BaseProduct
     {
         public ColdFood(string name, string weight, int price)
         {
@@ -15,11 +15,9 @@ namespace VendingMachine
             this.price = price;
         }
 
-        public override void Examine()
-        {
-            Console.Write($"Name: {name} - ");
-            Console.Write($"Fresh and tasty {name} - ");
-            Console.WriteLine($"Price {price} kr");
+        public override string Examine()
+        {         
+            return $"Name: {name} - Fresh and tasty {name} - Price {price} kr";
         }
         public override string Use()
         {

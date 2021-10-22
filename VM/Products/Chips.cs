@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VendingMachine
 {
-    public class Chips:BaseProduct
+    public class Chips : BaseProduct
     {
 
         public Chips(string name, string weight, int price)
@@ -16,11 +16,9 @@ namespace VendingMachine
             this.price = price;
         }
 
-        public override void Examine()
-        {
-            Console.Write($"Name: {name} - ");
-            Console.Write($"The best {name} - ");
-            Console.WriteLine($"Price {price} kr");
+        public override string Examine()
+        {          
+            return $"Name: {name} - The best {name} - Price {price} kr";
         }
         public override string Use()
         {

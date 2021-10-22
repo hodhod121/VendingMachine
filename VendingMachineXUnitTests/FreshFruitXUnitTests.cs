@@ -9,7 +9,7 @@ namespace VendingMachine
 {
     public class FreshFruitXUnitTests
     {
-        FreshFruit freshFruit = new("Apple","200gr",42);
+        FreshFruit freshFruit = new("Fresh fruit","200gr",42);
         [Fact]
         public void FreshFruit_ReturnTrue()
         {
@@ -20,8 +20,29 @@ namespace VendingMachine
         [Fact]
         public void FreshFruitName_ReturnTrue()
         {
-            string expected = "Apple";
+            string expected = "Fresh fruit";
             string actual = freshFruit.name;
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void FreshFruitWeight_ReturnTrue()
+        {
+            string expected = "200gr";
+            string actual = freshFruit.weight;
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void FreshFruitUse_ReturnTrue()
+        {
+            string expected = "Just open and eat the Fresh fruit!";
+            string actual = freshFruit.Use();
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void FreshFruitExamine_ReturnTrue()
+        {
+            string expected = "Name: Fresh fruit - Fresh Fresh fruit - Price 42 kr";
+            string actual = freshFruit.Examine();
             Assert.Equal(expected, actual);
         }
     }
