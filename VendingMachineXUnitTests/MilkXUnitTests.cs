@@ -9,12 +9,12 @@ namespace VendingMachine
 {
     public class MilkXUnitTests
     {
-        Milk milk = new();
+        Milk milk = new("Milk","200gr",39);
         [Fact]
         public void Milk_ReturnTrue()
         {
             int expected = 39;
-            int actual = milk.price();
+            int actual = milk.price;
             Assert.Equal(expected, actual);
         }
         [Fact]

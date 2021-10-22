@@ -8,7 +8,9 @@ namespace VendingMachine
 {
        abstract public class BaseProduct
     {       
-        public abstract int price();
+        public int price { get; set; }
+        public string name { get; set; }
+        public string weight { get; set; }
 
         public abstract void Examine();
 

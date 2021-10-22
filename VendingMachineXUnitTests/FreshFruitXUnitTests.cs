@@ -9,18 +9,18 @@ namespace VendingMachine
 {
     public class FreshFruitXUnitTests
     {
-        FreshFruit freshFruit = new();
+        FreshFruit freshFruit = new("Apple","200gr",42);
         [Fact]
         public void FreshFruit_ReturnTrue()
         {
             int expected = 42;
-            int actual = freshFruit.price();
+            int actual = freshFruit.price;
             Assert.Equal(expected, actual);
         }
         [Fact]
         public void FreshFruitName_ReturnTrue()
         {
-            string expected = "FreshFruit";
+            string expected = "Apple";
             string actual = freshFruit.name;
             Assert.Equal(expected, actual);
         }

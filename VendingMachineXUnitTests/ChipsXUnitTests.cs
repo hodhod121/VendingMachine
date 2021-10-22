@@ -9,13 +9,13 @@ namespace VendingMachine
 {
     public class ChipsXUnitTests
     {
-        Chips chips = new();
+        Chips chips = new("Chips","90gr",47);
         
         [Fact]
         public void Chips_ReturnTrue()
         {
             int expected = 47;
-            int actual = chips.price();
+            int actual = chips.price;
             Assert.Equal(expected, actual);
         }
         [Fact]

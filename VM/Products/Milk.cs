@@ -8,24 +8,18 @@ namespace VendingMachine
 {
     public class Milk:BaseProduct
     {
-        public override int price()
-        {
-            return 39;
-        }
-        public string name = "Milk";
-        public string weight = "100g";
-
-        public Milk(string name, string weight)
+        public Milk(string name, string weight,int price)
         {
             this.name = name;
             this.weight = weight;
+            this.price = price;
         }
 
         public override void Examine()
         {
             Console.Write($"Name: {name} - ");
             Console.Write($"Very fresh and tasty {name} - ");
-            Console.WriteLine($"Price {price()} kr");
+            Console.WriteLine($"Price {price} kr");
         }
         public override string Use()
         {
