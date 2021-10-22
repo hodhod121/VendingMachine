@@ -8,16 +8,23 @@ namespace VendingMachine
 {
     public class Coffee:BaseProduct
     {
-        public int price()
+        public override int price()
         {
             return 35;
         }
         public string name = "Coffee";
+        public string weight = "100g";
+
+        public Coffee(string name, string weight)
+        {
+            this.name = name;
+            this.weight = weight;
+        }
 
         public override void Examine()
         {
             Console.Write($"Name: {name} - ");
-            Console.Write($"Very tasty {name} - ");
+            Console.Write($"Fresh {name} - ");
             Console.WriteLine($"Price {price()} kr");
         }
         public override string Use()

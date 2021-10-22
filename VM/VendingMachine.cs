@@ -10,53 +10,113 @@ namespace VendingMachine
 {
     public class VendingMachine:IVending
     {
-        Candy candy = new();
-        Chips chips = new();
-        Coffee coffee = new();
-        ColdFood coldFood = new();
-        Cookies cookies = new();
-        FreshFruit freshFruit = new();
-        Milk milk = new();       
+        Candy candy = new("polkagris", "100g");
+        Candy candy_gummi = new("gummibjörn", "10g");
+        Candy candy_kola = new("kola", "50g");
+        Chips chips = new("chips", "70g");
+        Chips chips_dill = new("dillchips", "70g");
+        Chips chips_onion = new("onionchips", "70g");
+        Coffee coffee_milk = new("coffe by milk", "100g");
+        Coffee coffee_chocolate = new("chocolate coffee", "100g");
+        Coffee coffee = new("coffee", "100g");
+        ColdFood coldFood = new("cold food", "100g");
+        ColdFood coldFood_shrimps = new("shrimp sallad", "100g");
+        ColdFood coldFood_egg= new("egg sallad", "100g");
+        Cookies cookies = new("cookies", "90g");        
+        FreshFruit freshFruit = new("fruits", "190g");
+        FreshFruit freshFruit_banana = new("banana", "190g");
+        FreshFruit freshFruit_mix = new("mix fruits", "190g");
+        Milk milk = new("milk", "100g");       
         public int TOTAL_COST = 0;
         public int Price = 0;
         public int TotalPrice { get; set; }
         List<string> list = new List<string>();
         void ChooseProduct(char item)
         {
-            if (item == '1')
+            if (item == 'a')
             {
                 TOTAL_COST += candy.price();
                 list.Add(candy.Use());
             }
-            else if (item == '2')
+            if (item == 'b')
+            {
+                TOTAL_COST += candy_gummi.price();
+                list.Add(candy_gummi.Use());
+            }
+            if (item == 'c')
+            {
+                TOTAL_COST += candy_kola.price();
+                list.Add(candy_kola.Use());
+            }
+            else if (item == 'd')
+            {
+                TOTAL_COST += chips_dill.price();
+                list.Add(chips.Use());
+            }
+            else if (item == 'e')
+            {
+                TOTAL_COST += chips.price();
+                list.Add(chips_onion.Use());
+            }
+            else if (item == 'f')
             {
                 TOTAL_COST += chips.price();
                 list.Add(chips.Use());
             }
-            else if (item == '3')
+            else if (item == 'g')
             {
                 TOTAL_COST += coffee.price();
                 list.Add(coffee.Use());
             }
-            else if (item == '4')
+            else if (item == 'h')
+            {
+                TOTAL_COST += coffee.price();
+                list.Add(coffee_milk.Use());
+            }
+            else if (item == 'i')
+            {
+                TOTAL_COST += coffee.price();
+                list.Add(coffee_chocolate.Use());
+            }
+            else if (item == 'j')
             {
                 TOTAL_COST += coldFood.price();
                 list.Add(coldFood.Use());
             }
-            else if (item == '5')
+            else if (item == 'k')
+            {
+                TOTAL_COST += coldFood.price();
+                list.Add(coldFood_shrimps.Use());
+            }
+            else if (item == 'l')
+            {
+                TOTAL_COST += coldFood.price();
+                list.Add(coldFood_egg.Use());
+            }
+            else if (item == 'm')
             {
                 TOTAL_COST += cookies.price();
                 list.Add(cookies.Use());
             }
-            else if (item == '6')
+            else if (item == 'n')
             {
                 TOTAL_COST += freshFruit.price();
                 list.Add(freshFruit.Use());
             }
-            else
+            else if (item == 'o')
+            {
+                TOTAL_COST += freshFruit.price();
+                list.Add(freshFruit_banana.Use());
+            }
+            else if (item == 'p')
+            {
+                TOTAL_COST += freshFruit.price();
+                list.Add(freshFruit_mix.Use());
+            }
+            else if(item=='q')
             {
                 TOTAL_COST += milk.price();
-                list.Add(candy.Use());
+                list.Add(milk.Use());
             }
         }
         public void InsertMoney()
@@ -134,11 +194,13 @@ namespace VendingMachine
             ShowAll();
             InsertMoney();
             Console.WriteLine();           
-            Console.WriteLine("1 - Candy , 2 - Chips , 3 - Coffee , 4 - Milk");
-            Console.WriteLine("5 - Cold Food , 6 - Cookies , 7 - Fresh Fruit");
-            Console.WriteLine("Choose your product number like this: 6");
+            Console.WriteLine("a - Candy , b - gummi candy, c - kola candy , d - Chips , e - chips by dill");
+            Console.WriteLine("f - chips by onion , g - coffee, h - coffee by chocolate , i - coffee by milk");
+            Console.WriteLine("j - Cold Food , k - shrimp sallad , l - egg sallad , m - Cookies ");
+            Console.WriteLine("n - fresh fruits , o - bananas , p - mix fruits , q - milk");
+            Console.WriteLine("Choose your product letter like this: b");
             bool ChooseMore = true;            
-            string[] items = new string[] {"1","2","3","4","5","6","7" };
+            string[] items = new string[] {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q" };
 
             while (ChooseMore)
             {
@@ -155,17 +217,20 @@ namespace VendingMachine
                         {
                             ChooseMore = false;
                             EndTransaction();
+                            
                         }                     
                     }
                     if (TOTAL_COST == TotalPrice)
                     {
                         ChooseMore = false;
                         EndTransaction();
+                       
                     }
                     if (TOTAL_COST > TotalPrice)
                     {
                         Console.WriteLine("Your total cost was more than total price, please try again!");
                         ChooseMore = false;
+                        
                     }
                 }
                 else
@@ -186,10 +251,12 @@ namespace VendingMachine
                     Console.WriteLine(item);
                 }
                 ReturnChange();
+                
             }
             else
             {
                 Console.WriteLine("Your total cost was more than total price, please try again!");
+               
             }
         }
         void ReturnChange()
@@ -200,11 +267,21 @@ namespace VendingMachine
         {
             Console.WriteLine("This is the list of our products");
             candy.Examine();
+            candy_gummi.Examine();
+            candy_kola.Examine();
             chips.Examine();
+            chips_dill.Examine();
+            chips_onion.Examine();
             coffee.Examine();
+            coffee_chocolate.Examine();
+            coffee_milk.Examine();
             coldFood.Examine();
+            coldFood_shrimps.Examine();
+            coldFood_egg.Examine();
             cookies.Examine();
             freshFruit.Examine();
+            freshFruit_banana.Examine();
+            freshFruit_mix.Examine();
             milk.Examine();        
         }
     }

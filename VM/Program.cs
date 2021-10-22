@@ -7,9 +7,7 @@ namespace VendingMachine
     {
         static void Main(string[] args)
         {            
-          VendingMachine vendingMachine=new();
-            //vendingMachine.DisplayCoinSelection();
-            //vendingMachine.DisplayProductSelections();
+          VendingMachine vendingMachine=new();           
             bool showMenu = true;
             while (showMenu)
             {

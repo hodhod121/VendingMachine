@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace VendingMachine
 {
        abstract public class BaseProduct
-    {
+    {       
+        public abstract int price();
 
         public abstract void Examine();
 

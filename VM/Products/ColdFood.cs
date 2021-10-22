@@ -8,16 +8,23 @@ namespace VendingMachine
 {
     public class ColdFood:BaseProduct
     {
-        public int price()
+        public override int price()
         {
             return 345;
         }
         public string name = "ColdFood";
+        public string weight = "100g";
+
+        public ColdFood(string name, string weight)
+        {
+            this.name = name;
+            this.weight = weight;
+        }
 
         public override void Examine()
         {
             Console.Write($"Name: {name} - ");
-            Console.Write($"Very tasty {name} - ");
+            Console.Write($"Fresh and tasty {name} - ");
             Console.WriteLine($"Price {price()} kr");
         }
         public override string Use()
